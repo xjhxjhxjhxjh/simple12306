@@ -7,6 +7,7 @@ import com.xjh.client.OrderClient;
 import com.xjh.entity.User;
 import com.xjh.mapper.UserMapper;
 import com.xjh.service.UserService;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.aspectj.weaver.ast.Var;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +75,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
+    @GlobalTransactional
     public Boolean buyTicket(Integer startId, Integer endId, String date, Long uId) {
         Boolean ifAbsent = redisTemplate.opsForValue().
                 setIfAbsent(startId + endId + date + uId, "1");

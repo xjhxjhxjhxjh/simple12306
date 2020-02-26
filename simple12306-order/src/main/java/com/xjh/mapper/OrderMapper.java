@@ -5,6 +5,8 @@ import com.xjh.dto.OrderDTO;
 import com.xjh.entity.Order;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -13,8 +15,6 @@ import java.util.List;
  * @date 2020/2/24 14:57
  */
 public interface OrderMapper extends BaseMapper<Order> {
-
-
 
     @Select("select tPrice * (r2.rMileage - r1.rMileage) price, " +
             "o.oUserId userId, u.uName userName, t.tType type, " +
