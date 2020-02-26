@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: simple12306-gateway
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+        namespace: 6c5001af-b9ee-41d2-b613-4cf2193df5e9
+        group: simple12306
